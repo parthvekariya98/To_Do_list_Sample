@@ -37,12 +37,13 @@ function ToDoList() {
     <div>
       <h1>To-Do List</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="new-item">New item:</label>
+        {/* <label htmlFor="new-item">New item:</label> */}
         <input
           id="new-item"
           type="text"
           value={newItem}
           onChange={(e) => setNewItem(e.target.value)}
+          placeholder="Enter new item..."
         />
         <button type="submit">Add</button>
       </form>
@@ -55,7 +56,7 @@ function ToDoList() {
               onChange={() => handleCheckboxChange(item.id)}
             />
             <span style={{ textDecoration: item.completed ? 'line-through' : 'none' }}>{item.text}</span>
-            <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
+            <button type='delete' onClick={() => handleRemoveItem(item.id)}>Remove</button>
           </li>
         ))}
       </ul>
